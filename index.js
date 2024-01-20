@@ -104,7 +104,7 @@ function main() {
 
     STATE.prompt =
       // "Let's try again. Remember to say them in reverse order. 3 4.";
-      "하나 더 해 봅시다. 제가 말한 것을 거꾸로 입력해야 한다는 것을 기억하십시오.";
+      "하나 더 해 봅시다. 제가 말한 것을 거꾸로 입력해야 한다는 것을 기억하십시오. 3 4.";
     await speak(STATE.prompt, 0.75);
     $('#play').disabled = false;
 

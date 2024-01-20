@@ -55,8 +55,9 @@ function main() {
 
     /** Forward. */
     STATE.prompt =
-      "I will now say some numbers. Listen attentively since I can't repeat them. Whenever I've finished saying them, I ask that you type them in the box below in the same order that I told them to you.";
-    await speak(STATE.prompt, 0.75);
+      // "I will now say some numbers. Listen attentively since I can't repeat them. Whenever I've finished saying them, I ask that you type them in the box below in the same order that I told them to you.";
+      "이번에는 몇 개의 숫자를 불러줄 것입니다. 잘 들으십시오. 딱 한번만 불러 줄 것입니다. 제가 다 불러준 다음에 그대로 따라서 입력해 보십시오. 제가 불러준 그대로 따라 입력해야 합니다";
+      await speak(STATE.prompt, 0.75);
 
     let forwardWrongStreak = 0;
     FORWARD: for (const [i, sequence] of Object.entries(generate_forward())) {
@@ -83,7 +84,8 @@ function main() {
 
     /** Backward. */
     STATE.prompt =
-      "I will now say more numbers, but this time I'll ask you to repeat them in reverse order. If I were to say 7 1, what would you tell me?";
+      // "I will now say more numbers, but this time I'll ask you to repeat them in reverse order. If I were to say 7 1, what would you tell me?";
+      "이번에는 몇 개의 숫자를 불러주면, 제가 다 불러 준 이후, 그것을 거꾸로 따라 입력하여 보십시오. 예를 들어 제가 7 1 이라고 하면 뭐라고 입력해야 하지요?"
     await speak(STATE.prompt, 0.75);
     $('#play').disabled = false;
     $('#play').textContent = 'REPEAT';
@@ -91,26 +93,29 @@ function main() {
     const BACKWARD_PRACTICE_1 = await waitForSubmission();
 
     if (BACKWARD_PRACTICE_1 === '17') {
-      await speak("That's correct.", 0.75);
+      await speak(/*"That's correct."*/"맞습니다", 0.75);
     } else {
       await speak(
-        'That is not correct. I said 7 1, for which in reverse order the correct response was 1 7.',
+        // 'That is not correct. I said 7 1, for which in reverse order the correct response was 1 7.',
+        '그렇지 않습니다. 제가 7 1 이라고 말했으니까, 거꾸로 하면, 당신은 1 7 이라고 입력해야 합니다.',
         0.75
       );
     }
 
     STATE.prompt =
-      "Let's try again. Remember to say them in reverse order. 3 4.";
+      // "Let's try again. Remember to say them in reverse order. 3 4.";
+      "하나 더 해 봅시다. 제가 말한 것을 거꾸로 입력해야 한다는 것을 기억하십시오.";
     await speak(STATE.prompt, 0.75);
     $('#play').disabled = false;
 
     const BACKWARD_PRACTICE_2 = await waitForSubmission();
 
     if (BACKWARD_PRACTICE_2 === '43') {
-      await speak("That's correct, let's do some more.", 0.75);
+      await speak(/*"That's correct, let's do some more."*/"맞습니다. 좀 더 해봅시다.", 0.75);
     } else {
       await speak(
-        "That is not correct. I said 3 4, for which in reverse order the correct response was 4 3. Let's do some more.",
+        // "That is not correct. I said 3 4, for which in reverse order the correct response was 4 3. Let's do some more.",
+        "그렇지 않습니다. 제가 3 4 라고 말했으니까, 거꾸로 하면, 당신은 4 3 이라고 입력해야 합니다. 좀 더 해봅시다.",
         0.75
       );
     }
@@ -140,32 +145,35 @@ function main() {
 
     /** Sequencing. */
     STATE.prompt =
-      'I will now say more numbers. After I say them I will ask that you repeat them to me in order, beginning with the smallest number. If I tell you 2 3 1, what would you tell me?';
+      // 'I will now say more numbers. After I say them I will ask that you repeat them to me in order, beginning with the smallest number. If I tell you 2 3 1, what would you tell me?';
+      '이제 제가 몇 개의 숫자를 불러줄 것입니다. 제가 다 불러준 이후에, 작은 숫자부터 순서대로 다시 입력해 보십시오. 제 2 3 1 하면 어떻게 입력하시겠습니까?'
     await speak(STATE.prompt, 0.75);
     $('#play').disabled = false;
 
     const SEQUENCING_PRACTICE_1 = await waitForSubmission();
 
     if (SEQUENCING_PRACTICE_1 === '123') {
-      await speak("That's correct.", 0.75);
+      await speak(/*"That's correct."*/"맞습니다", 0.75);
     } else {
       await speak(
-        'That is not correct. I said 2 3 1, for which if sorted in numerical order, beginning with the smallest, you should have said 1 2 3.',
+        // 'That is not correct. I said 2 3 1, for which if sorted in numerical order, beginning with the smallest, you should have said 1 2 3.',
+        '그렇지 않습니다. 제가 2 3 1 이라고 했으니까, 작은 숫자부터 순서대로 말하면 1 2 3이라고 입력해야 합니다.',
         0.75
       );
     }
 
-    STATE.prompt = "Let's try another, 5 2 2.";
+    STATE.prompt = /*"Let's try another, 5 2 2."*/"또 다른 것을 해 봅시다. 5 2 2.";
     await speak(STATE.prompt, 0.75);
     $('#play').disabled = false;
 
     const SEQUENCING_PRACTICE_2 = await waitForSubmission();
 
     if (SEQUENCING_PRACTICE_2 === '225') {
-      await speak("That's correct. Let's do some more.", 0.75);
+      await speak(/*"That's correct. Let's do some more."*/"맞습니다. 좀 더 해봅시다.", 0.75);
     } else {
       await speak(
-        "That is not correct. I said 5 2 2, for which if sorted in numerical order, beginning with the smallest, you should have said 2 2 5. Let's do some more.",
+        // "That is not correct. I said 5 2 2, for which if sorted in numerical order, beginning with the smallest, you should have said 2 2 5. Let's do some more.",
+        '그렇지 않습니다. 제가 5 2 2 라고 했으니까, 작은 숫자부터 순서대로 말하면 2 2 5 라고 입력해야 합니다.',
         0.75
       );
     }

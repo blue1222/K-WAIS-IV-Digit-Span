@@ -8,62 +8,62 @@
     <link rel="stylesheet" href="pure-v2.0.6.css" />
     <link rel="stylesheet" href="index.css" />
     <script src="index.js" type="module"></script>
-    <title>WAIS-IV — Digit Span [random]</title>
+    <title>K-WAIS-IV — 숫자 [랜덤]</title>
   </head>
 
   <body>
     <h2>WAIS-IV — Digit Span</h2>
     <h6>random</h6>
     <div id="container">
-      <input id="lang" oninput="globalThis.lang = this.value;" placeholder="en-US" value="en-US" />
+      <input id="lang" oninput="globalThis.lang = this.value;" placeholder="ko-KR" value="ko-KR" />
 
       <a href="https://www.andiamo.co.uk/resources/iso-language-codes/" target="_">Codes</a>
       <br />
-      <button id="play" data-clicked="false">PLAY</button>
+      <button id="play" data-clicked="false">시작</button>
       <form>
         <div id="textbox-container">
           <span id="pseudo-submission" tabIndex="0">&nbsp;</span>
           <input id="submission" type="text" />
         </div>
-        <button id="submit-and-continue" disabled>Submit & Continue</button>
+        <button id="submit-and-continue" disabled>제출 및 계속</button>
       </form>
-      <div><label for="years">Your age in years:</label><input id="years" type="number" value="16" step="1" min="16"
+      <div><label for="years">나이:</label><input id="years" type="number" value="16" step="1" min="16"
           max="79" /></div>
       <div>
         <table>
-          <caption>Your Scores</caption>
+          <caption>점수</caption>
           <thead>
             <tr>
-              <th>Category</th>
-              <th>Raw</th>
+              <th>영역</th>
+              <th>원점수</th>
               <th>IQ</th>
             </tr>
           </thead>
           <tbody>
             <tr name="forward">
-              <td>Forwards</td>
+              <td>바로</td>
               <td>0</td>
               <td>0</td>
             </tr>
             <tr name="backward">
-              <td>Backwards</td>
+              <td>거꾸로</td>
               <td>0</td>
               <td>0</td>
             </tr>
             <tr name="sequencing">
-              <td>Sequencing</td>
+              <td>순서대로</td>
               <td>0</td>
               <td>0</td>
             </tr>
             <tr name="overall">
-              <td>Overall</td>
+              <td>전체</td>
               <td>0</td>
               <td>0</td>
             </tr>
           </tbody>
           <tfoot>
             <tr name="scaled">
-              <td>Scaled</td>
+              <td>변환점수</td>
               <td colspan="2">0</td>
             </tr>
           </tfoot>
